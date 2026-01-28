@@ -13,18 +13,18 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Lite Edition"
 
 set_global_assignment -name GENERATE_RBF_FILE ON
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS OFF
 set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
 set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
@@ -291,40 +291,18 @@ set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to BTN_*
 source files.qip
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE sprites.stp
-set_global_assignment -name VERILOG_FILE rtl/slapcore.v
-set_global_assignment -name VERILOG_FILE rtl/slap_sprites.v
-set_global_assignment -name VERILOG_FILE rtl/slap_foreground.v
-set_global_assignment -name VERILOG_FILE rtl/slap_background.v
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/rom_loader.sv
-set_global_assignment -name VHDL_FILE rtl/T80/T80pa.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80s.vhd
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/roms/ROM82S129sv.sv
 set_global_assignment -name CDF_FILE jtag.cdf
+set_global_assignment -name QIP_FILE "rtl/slapcore/index.qip"
+set_global_assignment -name QIP_FILE "modules/hiscore/index.qip"
+set_global_assignment -name QIP_FILE "modules/cpu-t80/index.qip"
+set_global_assignment -name QIP_FILE "modules/sound-jt49/index.qip"
 set_global_assignment -name QIP_FILE sys/sys.qip
-set_global_assignment -name VERILOG_FILE rtl/ttl_chips.v
-set_global_assignment -name VERILOG_FILE rtl/slap_ram.v
-set_global_assignment -name VERILOG_FILE rtl/slap_roms.v
-set_global_assignment -name VERILOG_FILE rtl/hiscore.v
-set_global_assignment -name VERILOG_FILE rtl/pause.v
+set_global_assignment -name QIP_FILE sys/pll_hdmi.qip
+set_global_assignment -name QIP_FILE sys/pll_audio.qip
 set_global_assignment -name VHDL_FILE rtl/dpram_dc.vhd
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_bus.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_noise.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_exp.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_eg.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_div.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/jt49_cen.v
-set_global_assignment -name VERILOG_FILE rtl/jt49/filter/jt49_dcrm2.v
-set_global_assignment -name VHDL_FILE rtl/T80/T80as.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80_Reg.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80_MCode.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80_ALU.vhd
-set_global_assignment -name VHDL_FILE rtl/T80/T80_Pack.vhd
 set_global_assignment -name VERILOG_FILE rtl/jtframe_dcrm.v
 set_global_assignment -name VERILOG_FILE rtl/jtframe_fir.v
 set_global_assignment -name VERILOG_FILE rtl/jtframe_jt49_filters.v
 set_global_assignment -name SYSTEMVERILOG_FILE "Arcade-SlapFight.sv"
 set_global_assignment -name SDC_FILE "Arcade-SlapFight.sdc"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name SLD_FILE db/sprites_auto_stripped.stp
