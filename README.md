@@ -1,3 +1,8 @@
+-=(SlapFight_Senhor notes)=-
+
+Tested: Working Video 720p, 1080p & Sound.
+
+___
 <h1># SLAP FIGHT / ALCON</H1>
 A big thank you to Neil Ward for providing a set of preliminary schematics and a diagnostic ROM.
 
